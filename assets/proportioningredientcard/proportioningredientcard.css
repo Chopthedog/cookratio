@@ -1,0 +1,506 @@
+.picard{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .picard-head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  
+  .picard-title-wrap{
+    min-width: 0;
+    flex: 1;
+  }
+  
+  .picard-title{
+    margin: 0;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: rgb(var(--ink));
+  }
+  
+  .picard-subtitle{
+    margin: 6px 0 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(18,18,22,0.62);
+  }
+  
+  .picard-body{
+    display: grid;
+    gap: 16px;
+  }
+  
+  .picard-row{
+    display: grid;
+    gap: 10px;
+  }
+  
+  .picard-label{
+    margin: 0;
+    padding-left: 4px;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(18,18,22,0.52);
+  }
+  
+  .picard-select,
+  .picard-input,
+  .picard-unit{
+    width: 100%;
+    height: 48px;
+    min-width: 0;
+    padding: 0 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.42);
+    font: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(var(--ink));
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    outline: none;
+    transition:
+      background .18s ease,
+      box-shadow .18s ease,
+      border-color .18s ease;
+  }
+  
+  .picard-select:focus,
+  .picard-input:focus,
+  .picard-unit:focus{
+    background: rgba(255,255,255,0.92);
+    border-color: rgba(94,168,255,.7);
+    box-shadow: 0 0 0 4px rgba(94,168,255,.16);
+  }
+  
+  .picard-input::placeholder{
+    color: rgba(18,18,22,0.4);
+  }
+  
+  .picard-input[type="number"]{
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+  
+  .picard-input[type="number"]::-webkit-outer-spin-button,
+  .picard-input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Quantità + Unità sempre sulla stessa riga */
+  .picard-grid-2{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 128px;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .picard-unit{
+    cursor: pointer;
+    text-align: left;
+    appearance: none;
+    -webkit-appearance: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .picard-empty{
+    padding: 18px 16px;
+    border-radius: 22px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(18,18,22,0.58);
+    background: rgba(255,255,255,0.34);
+    border: 1px dashed rgba(255,255,255,0.42);
+  }
+  
+  /* ===================== */
+  /* TRIGGER INGREDIENTE */
+  /* ===================== */
+  
+  .picard-picker-trigger{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  
+  .picard-picker-trigger::after{
+    content: "▾";
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-size: 14px;
+    opacity: .7;
+  }
+  
+  .picard-picker-trigger:disabled{
+    opacity: .5;
+    cursor: default;
+  }
+  
+  /* ===================== */
+  /* MODALE INGREDIENTI */
+  /* ===================== */
+  
+  .picard-modal-overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(15, 18, 28, 0.34);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .picard-modal-overlay.hidden{
+    display: none !important;
+  }
+  
+  .picard-modal{
+    width: min(100%, 560px);
+    max-height: min(82vh, 760px);
+    overflow: auto;
+    border-radius: 30px;
+    padding: 18px;
+    background: rgba(232, 238, 248, 0.82);
+    border: 1px solid rgba(255,255,255,0.45);
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.45);
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    color: rgb(var(--ink));
+    animation: picard-modal-pop .18s ease forwards;
+  }
+  
+  @keyframes picard-modal-pop{
+    from{
+      opacity: 0;
+      transform: translateY(14px) scale(.985);
+    }
+  
+    to{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .picard-modal-topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .picard-modal-title-wrap{
+    min-width: 0;
+  }
+  
+  .picard-modal-title{
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: rgb(var(--ink));
+  }
+  
+  .picard-modal-subtitle{
+    margin: 6px 0 0;
+    font-size: 13px;
+    line-height: 1.35;
+    color: rgba(18,18,22,0.58);
+  }
+  
+  .picard-modal-close{
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+    font: inherit;
+    font-size: 20px;
+    font-weight: 800;
+    color: rgb(var(--ink));
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(255,255,255,0.38);
+    box-shadow:
+      0 8px 18px rgba(0,0,0,0.08),
+      inset 0 1px 0 rgba(255,255,255,0.42);
+    transition:
+      transform .16s ease,
+      background .16s ease;
+  }
+  
+  .picard-modal-close:hover{
+    transform: scale(1.03);
+    background: rgba(255,255,255,0.92);
+  }
+  
+  .picard-picker-list{
+    display: grid;
+    gap: 10px;
+  }
+  
+  .picard-picker-option{
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    gap: 4px;
+    text-align: left;
+    padding: 13px 14px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    font: inherit;
+    color: rgb(var(--ink));
+    background: rgba(255,255,255,.76);
+    border: 1px solid rgba(255,255,255,.42);
+    box-shadow:
+      0 8px 18px rgba(0,0,0,.05),
+      inset 0 1px 0 rgba(255,255,255,.42);
+    transition:
+      transform .16s ease,
+      background .16s ease,
+      box-shadow .16s ease,
+      color .16s ease;
+  }
+  
+  .picard-picker-option:hover{
+    transform: translateY(-1px);
+    background: rgba(255,255,255,.94);
+    box-shadow:
+      0 12px 24px rgba(0,0,0,.08),
+      inset 0 1px 0 rgba(255,255,255,.42);
+  }
+  
+  .picard-picker-option:active{
+    transform: scale(.985);
+  }
+  
+  .picard-picker-option.is-selected{
+    background: #000;
+    color: #fff;
+    border-color: #000;
+    box-shadow:
+      0 8px 18px rgba(0,0,0,.18),
+      inset 0 1px 0 rgba(255,255,255,.15);
+  }
+  
+  .picard-picker-option-name{
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  
+  .picard-picker-option-meta{
+    font-size: 13px;
+    line-height: 1.2;
+    opacity: .7;
+  }
+  
+  .picard-picker-empty{
+    padding: 14px 12px;
+    border-radius: 16px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(18,18,22,0.58);
+    background: rgba(255,255,255,0.5);
+    border: 1px dashed rgba(18,18,22,0.12);
+  }
+  
+  /* ===================== */
+  /* CALCOLA BUTTON */
+  /* ===================== */
+  
+  .picard-calc-btn{
+    width: 100%;
+    min-height: 50px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #000;
+    box-shadow:
+      0 12px 26px rgba(0,0,0,.18),
+      inset 0 1px 0 rgba(255,255,255,.18);
+    transition:
+      transform .18s ease,
+      box-shadow .18s ease,
+      opacity .18s ease;
+  }
+  
+  .picard-calc-btn:hover{
+    transform: translateY(-1px);
+    box-shadow:
+      0 16px 34px rgba(0,0,0,.22),
+      inset 0 1px 0 rgba(255,255,255,.18);
+  }
+  
+  .picard-calc-btn:active{
+    transform: scale(.985);
+  }
+  
+  .picard-calc-btn:disabled{
+    opacity: .45;
+    cursor: default;
+    transform: none;
+  }
+  
+  /* ===================== */
+  /* RESULTS CARD */
+  /* ===================== */
+  
+  .picard-results-list{
+    display: grid;
+    gap: 10px;
+  }
+  
+  .picard-result-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(255,255,255,.42);
+    box-shadow:
+      0 8px 18px rgba(0,0,0,.05),
+      inset 0 1px 0 rgba(255,255,255,.42);
+  }
+  
+  .picard-result-name{
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(var(--ink));
+  }
+  
+  .picard-result-value{
+    flex-shrink: 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: rgb(var(--ink));
+    text-align: right;
+  }
+  
+  /* ===================== */
+  /* RESPONSIVE */
+  /* ===================== */
+  
+  @media (max-width: 699px){
+    .picard-title{
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 560px){
+    .picard-modal-overlay{
+      padding: 12px;
+    }
+  
+    .picard-modal{
+      width: 100%;
+      border-radius: 26px;
+      padding: 16px;
+    }
+  
+    .picard-modal-title{
+      font-size: 20px;
+    }
+  
+    .picard-picker-option{
+      padding: 12px 13px;
+      border-radius: 16px;
+    }
+  }
+  
+  @media (max-width: 520px){
+    .picard-grid-2{
+      grid-template-columns: minmax(0, 1fr) 112px;
+      gap: 8px;
+    }
+  
+    .picard-input,
+    .picard-unit{
+      padding: 0 12px;
+    }
+  }
+  
+  @media (max-width: 420px){
+    .picard{
+      gap: 18px;
+    }
+  
+    .picard-title{
+      font-size: 22px;
+    }
+  
+    .picard-subtitle{
+      font-size: 13px;
+    }
+  
+    .picard-select,
+    .picard-input,
+    .picard-unit{
+      height: 46px;
+      font-size: 16px;
+      padding: 0 10px;
+    }
+  
+    .picard-grid-2{
+      grid-template-columns: minmax(0, 1fr) 104px;
+      gap: 8px;
+    }
+  
+    .picard-picker-option-name{
+      font-size: 14px;
+    }
+  
+    .picard-picker-option-meta{
+      font-size: 12px;
+    }
+  
+    .picard-calc-btn{
+      min-height: 48px;
+      font-size: 14px;
+    }
+  
+    .picard-result-row{
+      padding: 12px 14px;
+    }
+  
+    .picard-result-name,
+    .picard-result-value{
+      font-size: 14px;
+    }
+  }
