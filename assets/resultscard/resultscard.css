@@ -1,0 +1,106 @@
+.rcard{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .rcard-head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  
+  .rcard-title-wrap{
+    min-width: 0;
+    flex: 1;
+  }
+  
+  .rcard-title{
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: rgb(var(--ink));
+  }
+  
+  .rcard-body{
+    display: grid;
+    gap: 14px;
+  }
+  
+  .rcard-list{
+    display: grid;
+    gap: 10px;
+  }
+  
+  .rcard-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(255,255,255,.42);
+    box-shadow:
+      0 8px 18px rgba(0,0,0,.05),
+      inset 0 1px 0 rgba(255,255,255,.42);
+  }
+  
+  .rcard-name{
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(var(--ink));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .rcard-value{
+    flex-shrink: 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: rgb(var(--ink));
+    text-align: right;
+  }
+  
+  .rcard-empty{
+    padding: 18px 16px;
+    border-radius: 22px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(18,18,22,0.58);
+    background: rgba(255,255,255,0.34);
+    border: 1px dashed rgba(255,255,255,0.42);
+  }
+  
+  @media (max-width: 699px){
+    .rcard-title{
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 420px){
+    .rcard{
+      gap: 18px;
+    }
+  
+    .rcard-title{
+      font-size: 22px;
+      line-height: 1.12;
+    }
+  
+    .rcard-row{
+      padding: 12px 14px;
+    }
+  
+    .rcard-name,
+    .rcard-value{
+      font-size: 14px;
+    }
+  }
