@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+
+  <!-- SEO BASE -->
+  <title>Proporziona Ricette Online | Calcolatore Ingredienti e Porzioni</title>
+
+  <meta
+    name="description"
+    content="Proporziona ricette online in modo semplice: inserisci ingredienti, quantità e unità, poi ricalcola automaticamente la ricetta per ingrediente o per numero di porzioni."
+  />
+
+  <meta
+    name="keywords"
+    content="proporziona ricette, proporzioni ricette, calcolatore ricette, ridimensionare ricetta, ingredienti ricetta, calcolo porzioni, convertitore ricette"
+  />
+
+  <meta name="author" content="Proporziona Ricette" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://proporzioni.com/" />
+
+  <!-- FAVICON / APP ICON -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
+  <!-- THEME -->
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#CFE3FF" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Proporziona Ricette" />
+  <meta property="og:title" content="Proporziona Ricette Online" />
+  <meta
+    property="og:description"
+    content="Calcola automaticamente le nuove quantità degli ingredienti per adattare una ricetta a nuove porzioni o a una quantità specifica."
+  />
+  <meta property="og:url" content="https://proporzioni.com/" />
+  <meta property="og:image" content="https://proporzioni.com/assets/images/og-image.png" />
+  <meta
+    property="og:image:alt"
+    content="Anteprima di Proporziona Ricette, calcolatore online per ingredienti e porzioni"
+  />
+
+  <!-- TWITTER / X CARD -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Proporziona Ricette Online" />
+  <meta
+    name="twitter:description"
+    content="Uno strumento semplice per proporzionare ingredienti e porzioni di una ricetta."
+  />
+  <meta name="twitter:image" content="https://proporzioni.com/assets/images/og-image.png" />
+
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Proporziona Ricette",
+    "alternateName": "Proporzioni",
+    "url": "https://proporzioni.com/",
+    "applicationCategory": "FoodApplication",
+    "operatingSystem": "Any",
+    "inLanguage": "it-IT",
+    "description": "Strumento online per proporzionare ricette, ingredienti e porzioni in modo automatico.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Proporziona Ricette",
+      "url": "https://proporzioni.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://proporzioni.com/assets/images/PTO.png"
+      }
+    }
+  }
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/ingredientscard/ingredientscard.css" />
+  <link rel="stylesheet" href="assets/ingredientscard/ingredientsrow/ingredientsrow.css" />
+  <link rel="stylesheet" href="assets/proportioningredientcard/proportioningredientcard.css" />
+  <link rel="stylesheet" href="assets/proportionportioncard/proportionportioncard.css" />
+  <link rel="stylesheet" href="assets/resultscard/resultscard.css" />
+</head>
+
+<body>
+  <main class="page">
+    <section class="stack">
+
+      <div class="site-logo-wrap">
+        <img
+          class="site-logo"
+          src="assets/images/og-image.png"
+          alt="Proporziona Ricette - calcolatore online per ingredienti e porzioni"
+        />
+      </div>
+
+      <article class="card bio-card">
+        <div id="ingredientsCardMount"></div>
+      </article>
+
+      <div class="calc-outside">
+        <button class="calc-main" id="calcMain" type="button">
+          FINE
+        </button>
+
+        <div class="calc-actions hidden" id="calcActions">
+          <button class="calc-action active" type="button" data-mode="ingredient">
+            Proporziona per ingrediente
+          </button>
+
+          <button class="calc-action" type="button" data-mode="portion">
+            Proporziona per porzioni
+          </button>
+        </div>
+      </div>
+
+      <article class="card bio-card hidden" id="proportionIngredientCardWrap">
+        <div id="proportionIngredientCardMount"></div>
+      </article>
+
+      <article class="card bio-card hidden" id="proportionPortionCardWrap">
+        <div id="proportionPortionCardMount"></div>
+      </article>
+
+      <article class="card bio-card hidden" id="resultsCardWrap">
+        <div id="resultsCardMount"></div>
+      </article>
+
+      <div class="footer-card">
+        proporziona ricette © 2026
+      </div>
+
+    </section>
+  </main>
+
+  <script type="module">
+    import "./assets/js/unitsmodal.js";
+    import { createIngredientsCard } from "./assets/ingredientscard/ingredientscard.js";
+    import { createProportionIngredientCard } from "./assets/proportioningredientcard/proportioningredientcard.js";
+    import { createProportionPortionCard } from "./assets/proportionportioncard/proportionportioncard.js";
+
+    const ingredientsMount = document.getElementById("ingredientsCardMount");
+    const proportionIngredientMount = document.getElementById("proportionIngredientCardMount");
+    const proportionPortionMount = document.getElementById("proportionPortionCardMount");
+
+    if (ingredientsMount) {
+      ingredientsMount.appendChild(createIngredientsCard());
+    }
+
+    if (proportionIngredientMount) {
+      const proportionCard = createProportionIngredientCard();
+      proportionIngredientMount.appendChild(proportionCard);
+      window.proportionIngredientCard = proportionCard;
+    }
+
+    if (proportionPortionMount) {
+      const proportionPortionCard = createProportionPortionCard();
+      proportionPortionMount.appendChild(proportionPortionCard);
+      window.proportionPortionCard = proportionPortionCard;
+    }
+  </script>
+
+  <script src="assets/js/calccontrols.js"></script>
+</body>
+</html>
