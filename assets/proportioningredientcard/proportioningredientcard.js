@@ -6,7 +6,7 @@ const VALUE_UNITS = [
   "ml", "cl", "dl", "l",
   "oz", "lb",
   "tsp", "tbsp",
-  "cucchiaino", "cucchiaio", "tazza", "bicchiere"
+  "teaspoon", "tablespoon", "cup", "glass"
 ];
 
 function normalizeUnit(value = "") {
@@ -18,7 +18,7 @@ function isQbUnit(unit = "") {
     .replaceAll(".", "")
     .replaceAll(" ", "");
 
-  return clean === "qb" || clean === "quantobasta";
+  return clean === "qb" || clean === "totaste";
 }
 
 function isValueUnit(unit = "") {
@@ -47,7 +47,7 @@ function formatQuantity(value) {
   if (!Number.isFinite(value)) return "";
 
   const rounded = Math.round(value * 100) / 100;
-  return String(rounded).replace(".", ",");
+  return String(rounded);
 }
 
 function smartUnit(quantity, unit = "") {
@@ -172,28 +172,28 @@ export function createProportionIngredientCard() {
   card.innerHTML = `
     <div class="picard-head">
       <div class="picard-title-wrap">
-        <h2 class="picard-title">Proporziona per ingrediente</h2>
+        <h2 class="picard-title">Scale by ingredient</h2>
         <p class="picard-subtitle">
-          Scegli un ingrediente e imposta la nuova quantità desiderata.
+          Choose an ingredient and enter the new amount you want.
         </p>
       </div>
     </div>
 
     <div class="picard-body">
       <div class="picard-row">
-        <p class="picard-label">Ingrediente da proporzionare</p>
+        <p class="picard-label">Reference ingredient</p>
 
         <button
           type="button"
           class="picard-select picard-picker-trigger"
           id="ingredientTrigger"
         >
-          Seleziona un ingrediente
+          Select an ingredient
         </button>
       </div>
 
       <div class="picard-row">
-        <p class="picard-label">Nuovo valore</p>
+        <p class="picard-label">New value</p>
 
         <div class="picard-grid-2">
           <input
@@ -203,7 +203,7 @@ export function createProportionIngredientCard() {
             inputmode="decimal"
             step="any"
             min="0"
-            placeholder="Nuova quantità"
+            placeholder="New quantity"
           />
 
           <button
@@ -211,17 +211,17 @@ export function createProportionIngredientCard() {
             class="picard-unit"
             id="unitButton"
           >
-            Seleziona unità
+            Select unit
           </button>
         </div>
       </div>
 
       <button class="picard-calc-btn" id="calculateButton" type="button">
-        Calcola
+        Calculate
       </button>
 
       <div class="picard-empty hidden" id="emptyState">
-        Inserisci almeno un ingrediente valido nella card principale.
+        Enter at least one valid ingredient in the main card.
       </div>
     </div>
   `;
@@ -264,10 +264,10 @@ export function createProportionIngredientCard() {
         <div class="picard-modal-topbar">
           <div class="picard-modal-title-wrap">
             <h3 class="picard-modal-title" id="ingredientModalTitle">
-              Scegli ingrediente
+              Choose ingredient
             </h3>
             <p class="picard-modal-subtitle">
-              Seleziona l’ingrediente da usare come riferimento.
+              Select the ingredient to use as the reference.
             </p>
           </div>
 
@@ -275,7 +275,7 @@ export function createProportionIngredientCard() {
             class="picard-modal-close"
             type="button"
             id="ingredientModalClose"
-            aria-label="Chiudi modale"
+            aria-label="Close modal"
           >
             ×
           </button>
@@ -319,8 +319,8 @@ export function createProportionIngredientCard() {
 
     if (
       !clean ||
-      clean.toLowerCase() === "unità" ||
-      clean.toLowerCase() === "seleziona unità"
+      clean.toLowerCase() === "unit" ||
+      clean.toLowerCase() === "select unit"
     ) {
       return "";
     }
@@ -386,7 +386,7 @@ export function createProportionIngredientCard() {
       unitButton.textContent = clean;
     } else {
       unitButton.dataset.unit = "";
-      unitButton.textContent = "Seleziona unità";
+      unitButton.textContent = "Select unit";
     }
   }
 
@@ -409,7 +409,7 @@ export function createProportionIngredientCard() {
 
     if (!found) {
       selectedIngredient = "";
-      trigger.textContent = "Seleziona un ingrediente";
+      trigger.textContent = "Select an ingredient";
       quantityInput.value = "";
       setUnitValue("");
       renderMenu();
@@ -436,7 +436,7 @@ export function createProportionIngredientCard() {
     if (!ingredients.length) {
       menu.innerHTML = `
         <div class="picard-picker-empty">
-          Nessun ingrediente proporzionabile disponibile
+          No scalable ingredients available
         </div>
       `;
       return;
@@ -519,7 +519,7 @@ export function createProportionIngredientCard() {
 
     if (!mount) return;
 
-    const title = "Nuove quantità";
+    const title = "New quantities";
 
     mount.innerHTML = `
       <section class="ingredients-card rcard">
@@ -601,7 +601,7 @@ export function createProportionIngredientCard() {
 
     if (!hasIngredients) {
       selectedIngredient = "";
-      trigger.textContent = "Nessun ingrediente proporzionabile disponibile";
+      trigger.textContent = "No scalable ingredients available";
       quantityInput.value = "";
       setUnitValue("");
       renderMenu();
@@ -630,7 +630,7 @@ export function createProportionIngredientCard() {
       renderMenu();
     } else {
       selectedIngredient = "";
-      trigger.textContent = "Seleziona un ingrediente";
+      trigger.textContent = "Select an ingredient";
       quantityInput.value = "";
       setUnitValue("");
       renderMenu();
