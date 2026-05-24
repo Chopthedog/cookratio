@@ -6,40 +6,39 @@ let modalOptions = getDefaultModalOptions();
 
 const UNIT_SYSTEMS = {
   metric: {
-    label: "Metriche",
+    label: "Metric",
     mass: ["mg", "g", "kg"],
     liquid: ["ml", "cl", "dl", "l"]
   },
   imperial: {
-    label: "Imperiali",
+    label: "Imperial",
     mass: ["oz", "lb"],
     liquid: ["fl oz", "pt", "qt", "gal"]
   }
 };
 
 const COMMON_COOKING_UNITS = [
-  "uovo",
-  "uova",
-  "albume",
-  "albumi",
-  "tuorlo",
-  "tuorli",
-  "pizzico",
-  "cucchiaino",
-  "cucchiaio",
-  "tazza",
-  "bicchiere",
-  "presa",
-  "spicchio",
-  "mazzo",
-  "rametto",
-  "foglia",
-  "bustina",
-  "barattolo",
-  "lattina",
-  "pezzo",
-  "pz",
-  "q.b."
+  "egg",
+  "eggs",
+  "egg white",
+  "egg whites",
+  "egg yolk",
+  "egg yolks",
+  "pinch",
+  "teaspoon",
+  "tablespoon",
+  "cup",
+  "glass",
+  "clove",
+  "bunch",
+  "sprig",
+  "leaf",
+  "packet",
+  "jar",
+  "can",
+  "piece",
+  "pcs",
+  "to taste"
 ];
 
 const VALUE_UNITS = [
@@ -47,28 +46,27 @@ const VALUE_UNITS = [
   "ml", "cl", "dl", "l",
   "oz", "lb",
   "fl oz", "pt", "qt", "gal",
-  "cucchiaino", "cucchiaio", "tazza", "bicchiere"
+  "teaspoon", "tablespoon", "cup", "glass"
 ];
 
 const GENERIC_UNITS = [
-  "uovo",
-  "uova",
-  "albume",
-  "albumi",
-  "tuorlo",
-  "tuorli",
-  "pizzico",
-  "presa",
-  "spicchio",
-  "mazzo",
-  "rametto",
-  "foglia",
-  "bustina",
-  "barattolo",
-  "lattina",
-  "pezzo",
-  "pz",
-  "q.b."
+  "egg",
+  "eggs",
+  "egg white",
+  "egg whites",
+  "egg yolk",
+  "egg yolks",
+  "pinch",
+  "clove",
+  "bunch",
+  "sprig",
+  "leaf",
+  "packet",
+  "jar",
+  "can",
+  "piece",
+  "pcs",
+  "to taste"
 ];
 
 function normalizeUnit(unit = "") {
@@ -374,38 +372,38 @@ function createUnitsModalDOM() {
   modal.innerHTML = `
     <div class="um-topbar">
       <div class="um-title-wrap">
-        <h3 class="um-title" id="unitsModalTitle">Scegli unità</h3>
-        <p class="um-subtitle">Seleziona un’unità da applicare al campo attivo.</p>
+        <h3 class="um-title" id="unitsModalTitle">Choose unit</h3>
+        <p class="um-subtitle">Select a unit to apply to the active field.</p>
       </div>
 
-      <button class="um-close" type="button" aria-label="Chiudi modale">×</button>
+      <button class="um-close" type="button" aria-label="Close modal">×</button>
     </div>
 
     <div class="um-system-switch" id="unitsSystemSwitch">
-      <button class="um-system-btn active" type="button" data-system="metric">Metriche</button>
-      <button class="um-system-btn" type="button" data-system="imperial">Imperiali</button>
+      <button class="um-system-btn active" type="button" data-system="metric">Metric</button>
+      <button class="um-system-btn" type="button" data-system="imperial">Imperial</button>
     </div>
 
     <div class="um-sections">
       <section class="um-section">
-        <h4 class="um-section-title">Massa</h4>
+        <h4 class="um-section-title">Mass</h4>
         <div class="um-grid" id="unitsMassGrid"></div>
       </section>
 
       <section class="um-section">
-        <h4 class="um-section-title">Liquidi</h4>
+        <h4 class="um-section-title">Liquids</h4>
         <div class="um-grid" id="unitsLiquidGrid"></div>
       </section>
 
       <div class="um-common-divider" id="unitsCommonDivider" aria-hidden="true"></div>
 
       <section class="um-section" id="unitsCommonSection">
-        <h4 class="um-section-title">Cucina</h4>
+        <h4 class="um-section-title">Cooking</h4>
         <div class="um-grid" id="unitsCommonGrid"></div>
       </section>
 
       <div class="um-empty um-hidden" id="unitsModalEmpty">
-        Nessuna unità disponibile per questa selezione.
+        No units available for this selection.
       </div>
     </div>
   `;
@@ -504,12 +502,11 @@ function applyUnitToInput(input, value) {
   }
 
   const unitText = input.querySelector?.(".ir-unit-text");
-  if (unitText) {
-    unitText.textContent = value || "Unità";
-  }
 
-  if ("textContent" in input && input.matches?.("button")) {
-    input.textContent = value || "Seleziona unità";
+  if (unitText) {
+    unitText.textContent = value || "Unit";
+  } else if ("textContent" in input && input.matches?.("button")) {
+    input.textContent = value || "Select unit";
   }
 
   input.classList?.toggle("is-placeholder", !value);
