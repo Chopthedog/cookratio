@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <!-- SEO -->
-  <title>Cook Ratio | Recipe Scaler & Ingredient Calculator</title>
+  <title>Recipe Scaler & Serving Calculator | Cook Ratio</title>
 
   <meta
     name="description"
-    content="Cook Ratio is a free online recipe scaler. Enter ingredients, quantities and units, then resize any recipe by ingredient amount or by number of servings."
+    content="Cook Ratio is a free online recipe scaler and serving calculator for the United States. Adjust ingredients, resize servings, double recipes, and calculate cooking ratios instantly."
+  />
+
+  <meta
+    name="keywords"
+    content="recipe scaler, recipe calculator, serving calculator, ingredient calculator, recipe converter, scale recipe, double recipe calculator, cooking ratio calculator, baking calculator, adjust recipe servings"
   />
 
   <meta
@@ -25,8 +30,8 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://cookratio.com/" />
 
-  <!-- Temporary alternate URL for Cloudflare Pages -->
-  <link rel="alternate" href="https://cookratio.pages.dev/" hreflang="en" />
+  <!-- Language / Country targeting -->
+  <link rel="alternate" href="https://cookratio.com/" hreflang="en-US" />
   <link rel="alternate" href="https://cookratio.com/" hreflang="x-default" />
 
   <!-- Icons -->
@@ -41,11 +46,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Cook Ratio" />
-  <meta property="og:title" content="Cook Ratio | Recipe Scaler & Ingredient Calculator" />
+  <meta property="og:title" content="Recipe Scaler & Serving Calculator | Cook Ratio" />
 
   <meta
     property="og:description"
-    content="Resize recipes instantly by ingredient amount or by servings. A simple online calculator for ingredients, quantities and cooking ratios."
+    content="Scale recipes instantly for U.S. kitchens. Adjust ingredients, resize servings, double recipes, and calculate cooking ratios online."
   />
 
   <meta property="og:url" content="https://cookratio.com/" />
@@ -55,23 +60,23 @@
 
   <meta
     property="og:image:alt"
-    content="Cook Ratio recipe scaler interface for calculating ingredients and servings"
+    content="Cook Ratio recipe scaler and serving calculator for adjusting ingredients online"
   />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cook Ratio | Recipe Scaler & Ingredient Calculator" />
+  <meta name="twitter:title" content="Recipe Scaler & Serving Calculator | Cook Ratio" />
 
   <meta
     name="twitter:description"
-    content="Scale recipe ingredients online by ingredient amount or by servings."
+    content="Free online recipe scaler for adjusting ingredients, servings, and cooking ratios."
   />
 
   <meta name="twitter:image" content="https://cookratio.com/assets/images/og-image.png" />
 
   <meta
     name="twitter:image:alt"
-    content="Cook Ratio recipe scaler interface for calculating ingredients and servings"
+    content="Cook Ratio recipe scaler and serving calculator"
   />
 
   <!-- Preload important visual asset -->
@@ -90,6 +95,10 @@
         "logo": {
           "@type": "ImageObject",
           "url": "https://cookratio.com/assets/images/PTO.png"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
         }
       },
       {
@@ -100,7 +109,14 @@
         "publisher": {
           "@id": "https://cookratio.com/#organization"
         },
-        "inLanguage": "en-US"
+        "inLanguage": "en-US",
+        "audience": {
+          "@type": "Audience",
+          "geographicArea": {
+            "@type": "Country",
+            "name": "United States"
+          }
+        }
       },
       {
         "@type": "WebApplication",
@@ -108,28 +124,46 @@
         "name": "Cook Ratio",
         "alternateName": [
           "Recipe Scaler",
+          "Recipe Calculator",
+          "Serving Calculator",
           "Ingredient Calculator",
-          "Recipe Ratio Calculator"
+          "Recipe Converter",
+          "Cooking Ratio Calculator",
+          "Baking Calculator"
         ],
         "url": "https://cookratio.com/",
         "applicationCategory": "FoodApplication",
         "operatingSystem": "Any",
         "isAccessibleForFree": true,
         "inLanguage": "en-US",
-        "description": "Free online recipe scaler for resizing ingredients by ingredient amount or by number of servings.",
+        "description": "Free online recipe scaler and serving calculator for resizing ingredients, adjusting servings, doubling recipes, and calculating cooking ratios.",
         "image": "https://cookratio.com/assets/images/og-image.png",
         "publisher": {
           "@id": "https://cookratio.com/#organization"
         },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "audience": {
+          "@type": "Audience",
+          "geographicArea": {
+            "@type": "Country",
+            "name": "United States"
+          }
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "USD"
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
         },
         "featureList": [
           "Scale a recipe by ingredient amount",
           "Scale a recipe by number of servings",
+          "Double or halve a recipe",
           "Calculate new ingredient quantities",
+          "Adjust recipes for U.S. kitchen measurements",
           "Convert common cooking units automatically"
         ]
       }
@@ -148,13 +182,21 @@
 
 <body>
   <main class="page">
-    <section class="stack" aria-label="Cook Ratio recipe scaler">
+    <section class="stack" aria-label="Cook Ratio recipe scaler and serving calculator">
+
+      <h1 class="sr-only">
+        Recipe Scaler and Serving Calculator
+      </h1>
+
+      <p class="sr-only">
+        Use Cook Ratio to scale recipes, adjust ingredients, resize servings, double recipes, halve recipes, and calculate cooking ratios online for U.S. kitchens.
+      </p>
 
       <div class="site-logo-wrap">
         <img
           class="site-logo"
           src="/assets/images/og-image.png"
-          alt="Cook Ratio - free online recipe scaler and ingredient calculator"
+          alt="Cook Ratio - recipe scaler and serving calculator"
           width="1200"
           height="630"
           decoding="async"
@@ -162,7 +204,7 @@
         />
       </div>
 
-      <article class="card bio-card" aria-label="Recipe ingredients">
+      <article class="card bio-card" aria-label="Recipe ingredients calculator">
         <div id="ingredientsCardMount"></div>
       </article>
 
@@ -185,7 +227,7 @@
       <article
         class="card bio-card hidden"
         id="proportionIngredientCardWrap"
-        aria-label="Scale recipe by ingredient"
+        aria-label="Scale recipe by ingredient amount"
       >
         <div id="proportionIngredientCardMount"></div>
       </article>
@@ -193,7 +235,7 @@
       <article
         class="card bio-card hidden"
         id="proportionPortionCardWrap"
-        aria-label="Scale recipe by servings"
+        aria-label="Scale recipe by number of servings"
       >
         <div id="proportionPortionCardMount"></div>
       </article>
@@ -201,7 +243,7 @@
       <article
         class="card bio-card hidden"
         id="resultsCardWrap"
-        aria-label="Recipe scaling results"
+        aria-label="Scaled recipe results"
       >
         <div id="resultsCardMount"></div>
       </article>
