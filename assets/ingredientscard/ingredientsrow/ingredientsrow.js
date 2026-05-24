@@ -188,13 +188,13 @@ export function createIngredientsRow(prefill = {}) {
   }
 
   function setUnitValue(value, { auto = false } = {}) {
-    const cleanValue = value ?? "";
+    const cleanValue = String(value ?? "").trim();
 
     unitButton.dataset.value = cleanValue;
     syncUnitUI();
 
     unitWasAutoSetFromIngredientName =
-      auto && AUTO_UNITS.has(cleanValue.trim().toLowerCase());
+      auto && AUTO_UNITS.has(cleanValue.toLowerCase());
   }
 
   function syncAutoUnitFromInputs() {
@@ -305,12 +305,12 @@ export function createIngredientsRow(prefill = {}) {
   });
 
   unitButton.addEventListener("input", () => {
-    const nextValue = unitButton.value ?? unitButton.dataset.value ?? "";
+    const nextValue = unitButton.dataset.value ?? "";
     setUnitValue(nextValue, { auto: false });
   });
 
   unitButton.addEventListener("change", () => {
-    const nextValue = unitButton.value ?? unitButton.dataset.value ?? "";
+    const nextValue = unitButton.dataset.value ?? "";
     setUnitValue(nextValue, { auto: false });
   });
 
