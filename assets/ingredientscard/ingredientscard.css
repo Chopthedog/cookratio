@@ -1,278 +1,278 @@
 .ingredients-card{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .ingredients-head{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-  }
-  
-  .ingredients-title{
-    margin: 0;
-    font-size: 28px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: rgb(var(--ink));
-  }
-  
-  .ingredients-subtitle{
-    margin: 6px 0 0;
-    font-size: 14px;
-    line-height: 1.4;
-    color: rgba(18, 18, 22, 0.62);
-  }
-  
-  .ingredients-title-wrap{
-    min-width: 0;
-    flex: 1;
-    padding-left: 22px;
-  }
-  
-  .ingredients-count{
-    flex-shrink: 0;
-    min-width: 42px;
-    height: 42px;
-    padding: 0 14px;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: rgb(var(--ink));
-  
-    background: rgba(255,255,255,0.62);
-    border: 1px solid rgba(255,255,255,0.35);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  
-    box-shadow:
-      0 10px 24px rgba(0,0,0,0.08),
-      inset 0 1px 0 rgba(255,255,255,0.45);
-  }
-  
-  /*
-    Header allineato alle righe .ir-row.
-    Le colonne devono corrispondere a:
-    .ir-row{
-      grid-template-columns: minmax(0,1fr) 80px 88px;
-      gap: 10px;
-      padding: 10px;
-    }
-  */
-  .ingredients-grid-head{
-    display: grid;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.ingredients-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.ingredients-title{
+  margin: 0;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: rgb(var(--ink));
+}
+
+.ingredients-subtitle{
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(18, 18, 22, 0.62);
+}
+
+.ingredients-title-wrap{
+  min-width: 0;
+  flex: 1;
+  padding-left: 22px;
+}
+
+.ingredients-count{
+  flex-shrink: 0;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(var(--ink));
+
+  background: rgba(255,255,255,0.62);
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+/*
+  Header aligned with .ir-row.
+  Columns must match:
+  .ir-row{
     grid-template-columns: minmax(0,1fr) 80px 88px;
     gap: 10px;
-    align-items: end;
+    padding: 10px;
+  }
+*/
+.ingredients-grid-head{
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 80px 88px;
+  gap: 10px;
+  align-items: end;
+  padding: 0 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ingredients-grid-label{
+  margin: 0;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(18,18,22,0.52);
+  white-space: nowrap;
+}
+
+/* Visual alignment with the text inside the fields */
+.ingredients-grid-label:nth-child(1){
+  padding-left: 12px;
+  text-align: left;
+}
+
+.ingredients-grid-label:nth-child(2){
+  padding-left: 0;
+  text-align: center;
+}
+
+.ingredients-grid-label:nth-child(3){
+  padding-left: 12px;
+  text-align: left;
+}
+
+.ingredients-grid-spacer{
+  display: none;
+}
+
+.ingredients-body{
+  display: grid;
+  gap: 14px;
+}
+
+.ingredients-actions{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ingredients-add{
+  border: none;
+  border-radius: 18px;
+  padding: 14px 18px;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: rgb(var(--ink));
+
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(255,255,255,0.34);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.42);
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+.ingredients-add:hover{
+  transform: translateY(-1px) scale(1.015);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.42);
+}
+
+.ingredients-add:active{
+  transform: scale(0.99);
+}
+
+.ingredients-add:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ingredients-add-icon{
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 900;
+
+  background: rgba(255,255,255,0.85);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.55),
+    0 4px 12px rgba(0,0,0,0.08);
+}
+
+.ingredients-empty{
+  padding: 18px 16px;
+  border-radius: 22px;
+
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(18,18,22,0.58);
+
+  background: rgba(255,255,255,0.34);
+  border: 1px dashed rgba(255,255,255,0.42);
+}
+
+@media (max-width: 699px){
+  .ingredients-title{
+    font-size: 24px;
+  }
+
+  .ingredients-grid-head{
+    grid-template-columns: minmax(0,1fr) 80px 88px;
+    gap: 10px;
     padding: 0 10px;
+  }
+}
+
+@media (max-width: 520px){
+  .ingredients-head{
+    align-items: flex-start;
+  }
+
+  .ingredients-count{
+    min-width: 38px;
+    height: 38px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .ingredients-add{
     width: 100%;
-    box-sizing: border-box;
+    justify-content: center;
   }
-  
+}
+
+@media (max-width: 480px){
+  .ingredients-title-wrap{
+    padding-left: 20px;
+  }
+
+  .ingredients-grid-head{
+    grid-template-columns: minmax(0,1fr) 68px 78px;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
   .ingredients-grid-label{
-    margin: 0;
-    font-size: 11px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(18,18,22,0.52);
-    white-space: nowrap;
+    font-size: 10px;
   }
-  
-  /* Allineamento visivo con il testo dentro le caselle */
+
   .ingredients-grid-label:nth-child(1){
-    padding-left: 12px;
-    text-align: left;
+    padding-left: 10px;
   }
-  
+
   .ingredients-grid-label:nth-child(2){
     padding-left: 0;
     text-align: center;
   }
-  
+
   .ingredients-grid-label:nth-child(3){
-    padding-left: 12px;
-    text-align: left;
+    padding-left: 10px;
   }
-  
-  .ingredients-grid-spacer{
-    display: none;
+}
+
+@media (max-width: 420px){
+  .ingredients-card{
+    gap: 18px;
   }
-  
-  .ingredients-body{
-    display: grid;
-    gap: 14px;
+
+  .ingredients-title{
+    font-size: 22px;
   }
-  
-  .ingredients-actions{
-    display: flex;
-    justify-content: flex-start;
+
+  .ingredients-subtitle{
+    font-size: 13px;
   }
-  
+
   .ingredients-add{
-    border: none;
-    border-radius: 18px;
-    padding: 14px 18px;
-    cursor: pointer;
-  
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    color: rgb(var(--ink));
-  
-    background: rgba(255,255,255,0.72);
-    border: 1px solid rgba(255,255,255,0.34);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  
-    box-shadow:
-      0 10px 24px rgba(0,0,0,0.08),
-      inset 0 1px 0 rgba(255,255,255,0.42);
-  
-    transition:
-      transform .18s ease,
-      box-shadow .18s ease,
-      background .18s ease;
+    padding: 13px 16px;
+    font-size: 13px;
   }
-  
-  .ingredients-add:hover{
-    transform: translateY(-1px) scale(1.015);
-    box-shadow:
-      0 14px 30px rgba(0,0,0,0.10),
-      inset 0 1px 0 rgba(255,255,255,0.42);
-  }
-  
-  .ingredients-add:active{
-    transform: scale(0.99);
-  }
-  
-  .ingredients-add:disabled{
-    opacity: 0.55;
-    cursor: not-allowed;
-    transform: none;
-  }
-  
-  .ingredients-add-icon{
-    width: 22px;
-    height: 22px;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  
-    font-size: 16px;
-    line-height: 1;
-    font-weight: 900;
-  
-    background: rgba(255,255,255,0.85);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.55),
-      0 4px 12px rgba(0,0,0,0.08);
-  }
-  
-  .ingredients-empty{
-    padding: 18px 16px;
-    border-radius: 22px;
-  
-    font-size: 14px;
-    line-height: 1.45;
-    color: rgba(18,18,22,0.58);
-  
-    background: rgba(255,255,255,0.34);
-    border: 1px dashed rgba(255,255,255,0.42);
-  }
-  
-  @media (max-width: 699px){
-    .ingredients-title{
-      font-size: 24px;
-    }
-  
-    .ingredients-grid-head{
-      grid-template-columns: minmax(0,1fr) 80px 88px;
-      gap: 10px;
-      padding: 0 10px;
-    }
-  }
-  
-  @media (max-width: 520px){
-    .ingredients-head{
-      align-items: flex-start;
-    }
-  
-    .ingredients-count{
-      min-width: 38px;
-      height: 38px;
-      padding: 0 12px;
-      font-size: 12px;
-    }
-  
-    .ingredients-add{
-      width: 100%;
-      justify-content: center;
-    }
-  }
-  
-  @media (max-width: 480px){
-    .ingredients-title-wrap{
-      padding-left: 20px;
-    }
-  
-    .ingredients-grid-head{
-      grid-template-columns: minmax(0,1fr) 68px 78px;
-      gap: 8px;
-      padding: 0 10px;
-    }
-  
-    .ingredients-grid-label{
-      font-size: 10px;
-    }
-  
-    .ingredients-grid-label:nth-child(1){
-      padding-left: 10px;
-    }
-  
-    .ingredients-grid-label:nth-child(2){
-      padding-left: 0;
-      text-align: center;
-    }
-  
-    .ingredients-grid-label:nth-child(3){
-      padding-left: 10px;
-    }
-  }
-  
-  @media (max-width: 420px){
-    .ingredients-card{
-      gap: 18px;
-    }
-  
-    .ingredients-title{
-      font-size: 22px;
-    }
-  
-    .ingredients-subtitle{
-      font-size: 13px;
-    }
-  
-    .ingredients-add{
-      padding: 13px 16px;
-      font-size: 13px;
-    }
-  }
+}

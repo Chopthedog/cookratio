@@ -15,11 +15,11 @@ export function createIngredientsCard() {
 
   const title = document.createElement("h2");
   title.className = "ingredients-title";
-  title.textContent = "Ingredienti";
+  title.textContent = "Ingredients";
 
   const subtitle = document.createElement("p");
   subtitle.className = "ingredients-subtitle";
-  subtitle.textContent = "Inserisci gli ingredienti della ricetta.";
+  subtitle.textContent = "Enter the ingredients of your recipe.";
 
   titleWrap.appendChild(title);
   titleWrap.appendChild(subtitle);
@@ -36,15 +36,15 @@ export function createIngredientsCard() {
 
   const nameHead = document.createElement("p");
   nameHead.className = "ingredients-grid-label";
-  nameHead.textContent = "Ingrediente";
+  nameHead.textContent = "Ingredient";
 
   const quantityHead = document.createElement("p");
   quantityHead.className = "ingredients-grid-label";
-  quantityHead.textContent = "Quantità";
+  quantityHead.textContent = "Quantity";
 
   const unitHead = document.createElement("p");
   unitHead.className = "ingredients-grid-label";
-  unitHead.textContent = "Unità";
+  unitHead.textContent = "Unit";
 
   gridHead.appendChild(nameHead);
   gridHead.appendChild(quantityHead);
@@ -59,14 +59,14 @@ export function createIngredientsCard() {
   const addButton = document.createElement("button");
   addButton.className = "ingredients-add";
   addButton.type = "button";
-  addButton.setAttribute("aria-label", "Aggiungi ingrediente");
+  addButton.setAttribute("aria-label", "Add ingredient");
 
   const addIcon = document.createElement("span");
   addIcon.className = "ingredients-add-icon";
   addIcon.textContent = "+";
 
   const addText = document.createElement("span");
-  addText.textContent = "Aggiungi ingrediente";
+  addText.textContent = "Add ingredient";
 
   addButton.appendChild(addIcon);
   addButton.appendChild(addText);
@@ -142,8 +142,8 @@ export function createIngredientsCard() {
 
     if (
       !clean ||
-      clean.toLowerCase() === "unità" ||
-      clean.toLowerCase() === "seleziona unità"
+      clean.toLowerCase() === "unit" ||
+      clean.toLowerCase() === "select unit"
     ) {
       return "";
     }
