@@ -1,322 +1,322 @@
 :root{
-    --ink: 18 18 22;
-  
-    --bg-main: #CFE3FF;
-    --glass: rgba(200, 205, 215, 0.45);
-    --glass-strong: rgba(255,255,255,0.95);
-    --glass-soft: rgba(255,255,255,0.70);
-  
-    --radius-lg: 48px;
-    --radius-md: 20px;
-    --radius-sm: 16px;
-  
-    --edge: 18px;
-    --gap: 18px;
-  
-    --shadow-main:
-      0 12px 35px rgba(0,0,0,0.10),
-      inset 0 1px 0 rgba(255,255,255,0.35);
-  
-    --shadow-hover:
-      0 20px 55px rgba(0,0,0,0.14),
-      inset 0 1px 0 rgba(255,255,255,0.35);
-  }
-  
-  *{
-    box-sizing: border-box;
-  }
-  
-  html,
-  body{
-    min-height: 100%;
-  }
-  
-  html{
-    background: var(--bg-main);
-  }
-  
-  body{
-    margin: 0;
-    color: rgb(var(--ink));
-    font-family: ui-sans-serif, system-ui, -apple-system,
-                 "SF Pro Display", "SF Pro Text",
-                 "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg-main);
-    overflow-x: hidden;
-    position: relative;
-  }
-  
-  /* ===================== */
-  /* FIX ZOOM INPUT iOS */
-  /* ===================== */
-  
-  input,
-  select,
-  textarea,
-  button{
-    font-size: 16px;
-  }
-  
-  /* ===================== */
-  /* LAYOUT */
-  /* ===================== */
-  
-  .page{
-    min-height: 100dvh;
-    display: flex;
-    justify-content: center;
-    padding: var(--edge);
-  }
-  
-  .stack{
-    width: 100%;
-    max-width: 680px;
-    min-height: calc(100dvh - (var(--edge) * 2));
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-  }
-  
-  /* ===================== */
-  /* LOGO SITO */
-  /* ===================== */
-  
-  .site-logo-wrap{
-    width: 100%;
-  }
-  
-  .site-logo{
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-  
-  /* ===================== */
-  /* CARD BASE */
-  /* ===================== */
-  
-  .card{
-    border-radius: var(--radius-lg);
-    padding: 22px;
-    background: var(--glass);
-    backdrop-filter: blur(22px) saturate(140%);
-    -webkit-backdrop-filter: blur(22px) saturate(140%);
-    border: 1px solid rgba(255,255,255,0.25);
-    box-shadow: var(--shadow-main);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  
-  .card::after{
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(
-      800px 420px at 25% 15%,
-      rgba(255,255,255,0.16),
-      transparent 55%
-    );
-  }
-  
-  .card:hover{
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-  }
-  
-  /* ===================== */
-  /* CARD CONTENITORE */
-  /* ===================== */
-  
+  --ink: 18 18 22;
+
+  --bg-main: #CFE3FF;
+  --glass: rgba(200, 205, 215, 0.45);
+  --glass-strong: rgba(255,255,255,0.95);
+  --glass-soft: rgba(255,255,255,0.70);
+
+  --radius-lg: 48px;
+  --radius-md: 20px;
+  --radius-sm: 16px;
+
+  --edge: 18px;
+  --gap: 18px;
+
+  --shadow-main:
+    0 12px 35px rgba(0,0,0,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+
+  --shadow-hover:
+    0 20px 55px rgba(0,0,0,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html,
+body{
+  min-height: 100%;
+}
+
+html{
+  background: var(--bg-main);
+}
+
+body{
+  margin: 0;
+  color: rgb(var(--ink));
+  font-family: ui-sans-serif, system-ui, -apple-system,
+               "SF Pro Display", "SF Pro Text",
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-main);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===================== */
+/* iOS INPUT ZOOM FIX */
+/* ===================== */
+
+input,
+select,
+textarea,
+button{
+  font-size: 16px;
+}
+
+/* ===================== */
+/* LAYOUT */
+/* ===================== */
+
+.page{
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding: var(--edge);
+}
+
+.stack{
+  width: 100%;
+  max-width: 680px;
+  min-height: calc(100dvh - (var(--edge) * 2));
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+/* ===================== */
+/* SITE LOGO */
+/* ===================== */
+
+.site-logo-wrap{
+  width: 100%;
+}
+
+.site-logo{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ===================== */
+/* BASE CARD */
+/* ===================== */
+
+.card{
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  background: var(--glass);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: var(--shadow-main);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    800px 420px at 25% 15%,
+    rgba(255,255,255,0.16),
+    transparent 55%
+  );
+}
+
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ===================== */
+/* MAIN CONTENT CARD */
+/* ===================== */
+
+.bio-card{
+  padding: 42px;
+}
+
+#ingredientsCardMount{
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* ===================== */
+/* FROZEN CARD STATE */
+/* ===================== */
+
+#ingredientsCardMount.is-frozen{
+  opacity: 0.72;
+}
+
+#ingredientsCardMount.is-frozen .ir-row{
+  user-select: none;
+}
+
+#ingredientsCardMount.is-frozen .ir-field,
+#ingredientsCardMount.is-frozen .ingredients-add{
+  cursor: default;
+}
+
+#ingredientsCardMount.is-frozen .ir-field{
+  background: rgba(255,255,255,0.52);
+}
+
+#ingredientsCardMount.is-frozen .ingredients-add{
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ===================== */
+/* CALCULATION CONTROLS */
+/* ===================== */
+
+.hidden{
+  display: none;
+}
+
+.calc-outside{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: calc(100% - 84px);
+  margin: 0 auto;
+}
+
+.calc-main{
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(var(--ink));
+  background: var(--glass-soft);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-main);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.calc-main:hover{
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+.calc-main.is-disabled{
+  opacity: 0.58;
+}
+
+.calc-actions{
+  display: flex;
+  gap: 12px;
+}
+
+.calc-actions.hidden{
+  display: none;
+}
+
+.calc-action{
+  flex: 1;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(var(--ink));
+  background: var(--glass-soft);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-main);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.calc-action:hover{
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+.calc-action.active{
+  background: var(--glass-strong);
+}
+
+/* ===================== */
+/* FOOTER */
+/* ===================== */
+
+.footer-card{
+  margin-top: auto;
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #374151;
+  background: var(--glass);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: var(--shadow-main);
+}
+
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
+
+@media (max-width: 699px){
   .bio-card{
-    padding: 42px;
+    padding: 32px;
   }
-  
-  #ingredientsCardMount{
-    position: relative;
-    z-index: 1;
-    transition: opacity 0.2s ease;
-  }
-  
-  /* ===================== */
-  /* STATO CONGELATO CARD */
-  /* ===================== */
-  
-  #ingredientsCardMount.is-frozen{
-    opacity: 0.72;
-  }
-  
-  #ingredientsCardMount.is-frozen .ir-row{
-    user-select: none;
-  }
-  
-  #ingredientsCardMount.is-frozen .ir-field,
-  #ingredientsCardMount.is-frozen .ingredients-add{
-    cursor: default;
-  }
-  
-  #ingredientsCardMount.is-frozen .ir-field{
-    background: rgba(255,255,255,0.52);
-  }
-  
-  #ingredientsCardMount.is-frozen .ingredients-add{
-    opacity: 0.5;
-    pointer-events: none;
-  }
-  
-  /* ===================== */
-  /* CALCOLO FUORI CARD */
-  /* ===================== */
-  
-  .hidden{
-    display: none;
-  }
-  
+
   .calc-outside{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: calc(100% - 84px);
-    margin: 0 auto;
+    width: calc(100% - 64px);
   }
-  
-  .calc-main{
-    width: 100%;
-    padding: 14px 16px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: rgb(var(--ink));
-    background: var(--glass-soft);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-main);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      background 0.2s ease,
-      opacity 0.2s ease;
-  }
-  
-  .calc-main:hover{
-    transform: scale(1.02);
-    box-shadow: var(--shadow-hover);
-  }
-  
-  .calc-main.is-disabled{
-    opacity: 0.58;
-  }
-  
+}
+
+@media (max-width: 520px){
   .calc-actions{
-    display: flex;
-    gap: 12px;
+    flex-direction: column;
   }
-  
-  .calc-actions.hidden{
-    display: none;
+}
+
+@media (max-width: 420px){
+  .page{
+    padding: 14px;
   }
-  
+
+  .stack{
+    min-height: calc(100dvh - 28px);
+    gap: 14px;
+  }
+
+  .bio-card{
+    padding: 26px;
+  }
+
+  .calc-outside{
+    width: calc(100% - 52px);
+  }
+
+  .calc-main,
   .calc-action{
-    flex: 1;
-    padding: 14px 16px;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-    font-weight: 700;
-    line-height: 1.2;
-    color: rgb(var(--ink));
-    background: var(--glass-soft);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: var(--shadow-main);
-    transition:
-      transform 0.2s ease,
-      background 0.2s ease,
-      box-shadow 0.2s ease;
+    padding: 13px 14px;
   }
-  
-  .calc-action:hover{
-    transform: scale(1.02);
-    box-shadow: var(--shadow-hover);
-  }
-  
-  .calc-action.active{
-    background: var(--glass-strong);
-  }
-  
-  /* ===================== */
-  /* FOOTER */
-  /* ===================== */
-  
+
   .footer-card{
-    margin-top: auto;
-    border-radius: var(--radius-lg);
-    padding: 18px 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #374151;
-    background: var(--glass);
-    backdrop-filter: blur(22px) saturate(140%);
-    -webkit-backdrop-filter: blur(22px) saturate(140%);
-    border: 1px solid rgba(255,255,255,0.25);
-    box-shadow: var(--shadow-main);
+    font-size: 12px;
+    letter-spacing: 1.5px;
   }
-  
-  /* ===================== */
-  /* RESPONSIVE */
-  /* ===================== */
-  
-  @media (max-width: 699px){
-    .bio-card{
-      padding: 32px;
-    }
-  
-    .calc-outside{
-      width: calc(100% - 64px);
-    }
-  }
-  
-  @media (max-width: 520px){
-    .calc-actions{
-      flex-direction: column;
-    }
-  }
-  
-  @media (max-width: 420px){
-    .page{
-      padding: 14px;
-    }
-  
-    .stack{
-      min-height: calc(100dvh - 28px);
-      gap: 14px;
-    }
-  
-    .bio-card{
-      padding: 26px;
-    }
-  
-    .calc-outside{
-      width: calc(100% - 52px);
-    }
-  
-    .calc-main,
-    .calc-action{
-      padding: 13px 14px;
-    }
-  
-    .footer-card{
-      font-size: 12px;
-      letter-spacing: 1.5px;
-    }
-  }
+}
